@@ -185,7 +185,7 @@ import path from "path";
 import cors from "cors";
 const app = express();
 
-app.use(cors({ origin: "*"}));
+app.use(cors({ origin: "http://127.0.0.1:3001"}));
 app.use(express.json({ limit: "16KB" }));
 app.use(express.urlencoded({ extended: true }));
 
