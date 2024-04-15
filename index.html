@@ -174,7 +174,6 @@
     <script>
       const body = document.querySelector("body");
       const select = document.querySelector("select");
-      const url = `https://ipl-scrapper.onrender.com/`
       for (let i = 2008; i < 2025; i++) {
         const option = document.createElement("option");
         option.value = i;
@@ -191,13 +190,13 @@
 
         const img = document.querySelector(".img-cont");
         img.style.display = "block";
-        const res = await axios.post(url, {
+        const res = await axios.post("http://localhost:5000", {
           year: select.value,
         });
 
         if (res.data.status === true) {
         const a = document.createElement("a");
-        a.href = `${url}/download?file=${res.data.filename}`;
+        a.href = `http://localhost:5000/download?file=${res.data.filename}`;
         a.setAttribute("download", res.data.filename);
         a.setAttribute("role", "button");
         a.classList.add("button-29");
