@@ -222,6 +222,14 @@ app.get("/download", (req, res) => {
   res.sendFile(path.join(process.cwd(), file));
 });
 
+app.get("/", (req, res) => {
+  // const { file } = req.query;
+  // res.sendFile(path.join(process.cwd(), file));
+  res.json({
+    msg: "Conected!!"
+  })
+});
+
 app.listen(PORT, () => {
   console.log("Connected to the server", PORT);
 });
