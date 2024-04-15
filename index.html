@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding-top: 100px;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+
+    select {
+      width: 250px;
+      padding: 10px;
+      outline: none;
+      border: 2px solid black;
+      border-radius: 10px;
+      font-size: 20px;
+      color: white;
+      background-color: #32c766;
+    }
+
+    /* CSS */
+    .button-9 {
+      appearance: button;
+      backface-visibility: hidden;
+      background-color: #405cf5;
+      border-radius: 6px;
+      border-width: 0;
+      box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
+        rgba(50, 50, 93, 0.1) 0 2px 5px 0, rgba(0, 0, 0, 0.07) 0 1px 1px 0;
+      box-sizing: border-box;
+      color: #fff;
+      cursor: pointer;
+      font-family: -apple-system, system-ui, "Segoe UI", Roboto,
+        "Helvetica Neue", Ubuntu, sans-serif;
+      font-size: 100%;
+      height: 44px;
+      line-height: 1.15;
+      margin: 12px 0 0;
+      outline: none;
+      overflow: hidden;
+      padding: 0 25px;
+      position: relative;
+      text-align: center;
+      text-transform: none;
+      transform: translateZ(0);
+      transition: all 0.2s, box-shadow 0.08s ease-in;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      width: 100px;
+    }
+
+    .button-9:disabled {
+      cursor: default;
+    }
+
+    .button-9:focus {
+      box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
+        rgba(50, 50, 93, 0.2) 0 6px 15px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
+        rgba(50, 151, 211, 0.3) 0 0 0 4px;
+    }
+
+    /* CSS */
+    .button-29 {
+      margin: 0 auto;
+      align-items: center;
+      appearance: none;
+      background-image: radial-gradient(
+        100% 100% at 100% 0,
+        #5adaff 0,
+        #5468ff 100%
+      );
+      border: 0;
+      border-radius: 6px;
+      box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+        rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+      box-sizing: border-box;
+      color: #fff;
+      cursor: pointer;
+      display: inline-flex;
+      font-family: "JetBrains Mono", monospace;
+      height: 48px;
+      justify-content: center;
+      line-height: 1;
+      list-style: none;
+      overflow: hidden;
+      padding-left: 16px;
+      padding-right: 16px;
+      position: relative;
+      text-align: left;
+      text-decoration: none;
+      transition: box-shadow 0.15s, transform 0.15s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+      will-change: box-shadow, transform;
+      font-size: 18px;
+    }
+
+    .button-29:focus {
+      box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    }
+
+    .button-29:hover {
+      box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+      transform: translateY(-2px);
+    }
+
+    .button-29:active {
+      box-shadow: #3c4fe0 0 3px 7px inset;
+      transform: translateY(2px);
+    }
+
+    .img-cont {
+      display: flex;
+      justify-content: center;
+      display: none;
+      width: 250px;
+      margin: 0 auto;
+    }
+    img {
+      width: 50%s;
+      margin: 0 auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+
+    #download-btn {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+  <body>
+    <section>
+      <h1>Select a year to scrap data</h1>
+      <select name="year" id="year"></select>
+
+      <button class="button-9" role="button" id="scrap">Scrap</button>
+      <div id="download-btn"></div>
+
+      <div class="img-cont">
+        <img src="./Book.gif" alt="" />
+      </div>
+    </section>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"
+      integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      const body = document.querySelector("body");
+      const select = document.querySelector("select");
+      for (let i = 2008; i < 2025; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.innerText = i;
+        select.append(option);
+      }
+
+      const scrapBtn = document.querySelector("#scrap");
+      scrapBtn.addEventListener("click", async () => {
+        const prevA = document.querySelector("a");
+        if (prevA) {
+            prevA.remove();
+        }
+
+        const img = document.querySelector(".img-cont");
+        img.style.display = "block";
+        const res = await axios.post("http://localhost:5000", {
+          year: select.value,
+        });
+
+        if (res.data.status === true) {
+        const a = document.createElement("a");
+        a.href = `http://localhost:5000/download?file=${res.data.filename}`;
+        a.setAttribute("download", res.data.filename);
+        a.setAttribute("role", "button");
+        a.classList.add("button-29");
+
+        a.innerText = "Download";
+        img.style.display = "none";
+
+        document.querySelector("#download-btn").append(a);
+        }
+      });
+    </script>
+  </body>
+</html>
